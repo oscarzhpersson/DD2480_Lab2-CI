@@ -10,7 +10,7 @@ STATUS_DEBUG = True
 HOST = "127.0.0.1"
 PORT = 8080
 
-PATH_REPO = os.getcwd # Folder within CWD to run the code.
+PATH_REPO = str(os.getcwd()) # Folder within CWD to run the code.
 
 ##### PROGRAM #####
 

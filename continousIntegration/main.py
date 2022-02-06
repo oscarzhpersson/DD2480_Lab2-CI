@@ -20,7 +20,7 @@ def handler_Push():
 
     print(f'ref {data["ref"]}') # Debug print.
 
-    return "Tests if webhook event is received."
+    return "Tests if webhook event is received"
 
 if __name__ == '__main__':
     app.run(debug=True)

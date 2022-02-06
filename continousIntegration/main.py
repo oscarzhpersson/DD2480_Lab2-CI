@@ -1,6 +1,7 @@
 ##### IMPORTS #####
 
 from flask import Flask, request, json
+import logging
 
 ##### PROGRAM #####
 
@@ -18,9 +19,9 @@ def handler_Push():
 
     data = request.json # Request the data from the event.
 
-    print(f'ref {data["ref"]}') # Debug print.
+    app.logger.info("Received PUSH event from webhook!") # Debug print.
 
-    return "Tests if webhook event is received"
+    return data
 
 if __name__ == '__main__':
     app.run(debug=True)

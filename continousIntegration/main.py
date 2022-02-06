@@ -10,7 +10,7 @@ PORT = 5000
 
 ##### PROGRAM #####
 
-app = Flask(__name__)
+app = Flask(__name__) # Variable for flask server application, to be called upon.
 
 # Create an endpoint which receives requests from the GitHub API.
 @app.route('/', methods=['POST']) # Triggered by URL localhost:5000/
@@ -28,20 +28,10 @@ def handler_Push():
     # 1st clone your repository
     # 2nd compile the code
 
-    return "OK" #Flask.Response(status=200) # Defaults to 200 response code.
+    #Flask.Response(status=200)
+    return "OK" # Defaults to 200 response code.
 
 
 # Start the Flask web server.
 if __name__ == '__main__':
     app.run(debug=STATUS_DEBUG, host=HOST, port=PORT)
-
-
-
-
-
-
-##### Things that DID NOT work #####
-
-#@app.route('/githubPush', methods=['POST']) # Triggered by URL localhost:5000/githubPush.
-#def default():
-#    return "Server up and running"

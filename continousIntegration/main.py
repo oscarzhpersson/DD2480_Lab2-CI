@@ -25,7 +25,10 @@ def handler_Push():
     # TODO: Extract Repository.
     # TODO: Save relevant parts of repo into variables to send to the other scripts.
 
-    branch = None
+    branch = data["repository"]["clone_url"] # Fetches the clone URL from the payload.
+
+    print(branch)
+    return branch
 
     # Here you do all the continuous integration tasks
     # For example:

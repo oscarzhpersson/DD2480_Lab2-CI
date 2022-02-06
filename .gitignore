@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+ngrok
+
+# MacOS generated files.
+*.DS_store
+.DS_store
+.DS_store?
+
 # C extensions
 *.so
 

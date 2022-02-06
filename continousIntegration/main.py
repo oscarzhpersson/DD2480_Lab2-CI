@@ -13,11 +13,12 @@ def default():
 
 # Create an endpoint which receives requests from the GitHub API.
 
-@app.route('/githubPush', methods=['POST']) # Triggered by URL localhost:5000/githubPush
+@app.route('/githubPush', methods=['POST']) # Triggered by URL localhost:5000/githubPush.
 def handler_Push():
-    data = request.json
 
-    print("Tests if webhook event is received.")
+    data = request.json # Request the data from the event.
+
+    print(f'ref {data["ref"]}') # Debug print.
 
     return "Tests if webhook event is received."
 

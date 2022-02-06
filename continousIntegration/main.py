@@ -10,7 +10,7 @@ STATUS_DEBUG = True
 HOST = "127.0.0.1"
 PORT = 8080
 
-PATH_REPO = '' # Folder within CWD to run the code.
+PATH_REPO = os.getcwd # Folder within CWD to run the code.
 
 ##### PROGRAM #####
 
@@ -35,7 +35,8 @@ def handler_Push():
     # Step 1: Clone the repository.
     branch = data["repository"]["clone_url"] # Fetches the clone URL from the payload.
 
-    os.chdir(str(os.getcwd) + PATH_REPO) # Changes current directory to where the cloned repository is to be located.
+    #os.chdir(str(os.getcwd) + PATH_REPO) # Changes current directory to where the cloned repository is to be located.
+    os.chdir(PATH_REPO)
     os.system("git clone " + branch) # Runs command to clone the repository.
 
     # TODO: Run module that compiles.

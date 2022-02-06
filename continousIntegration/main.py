@@ -23,10 +23,15 @@ def handler_Push():
     # TODO: Extract Repository.
     # TODO: Save relevant parts of repo into variables to send to the other scripts.
 
-    return "OK" #Flask.Response(status=200)
+    # Here you do all the continuous integration tasks
+    # For example:
+    # 1st clone your repository
+    # 2nd compile the code
+
+    return "OK" #Flask.Response(status=200) # Defaults to 200 response code.
 
 
-
+# Start the Flask web server.
 if __name__ == '__main__':
     app.run(debug=STATUS_DEBUG, host=HOST, port=PORT)
 

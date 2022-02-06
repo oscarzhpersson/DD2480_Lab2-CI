@@ -1,7 +1,6 @@
 ##### IMPORTS #####
 
 from flask import Flask, request, json
-import logging
 
 ##### SETTINGS #####
 
@@ -19,7 +18,10 @@ def handler_Push():
 
     data = request.json # Request the data from the event.
 
-    app.logger.info("Received PUSH event from webhook!") # Debug print.
+    print("Received PUSH event from webhook!") # Debug print.
+
+    # TODO: Extract Repository.
+    # TODO: Save relevant parts of repo into variables to send to the other scripts.
 
     return "OK" #Flask.Response(status=200)
 

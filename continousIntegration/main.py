@@ -3,6 +3,12 @@
 from flask import Flask, request, json
 import logging
 
+##### SETTINGS #####
+
+STATUS_DEBUG = True
+HOST = "127.0.0.1"
+PORT = 5000
+
 ##### PROGRAM #####
 
 app = Flask(__name__)
@@ -20,7 +26,7 @@ def handler_Push():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=STATUS_DEBUG, host=HOST, port=PORT)
 
 
 

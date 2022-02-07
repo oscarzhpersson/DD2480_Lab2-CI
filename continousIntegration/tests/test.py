@@ -14,7 +14,7 @@ class Tests(unittest.TestCase):
         Test 3: Tests if it returns ERROR if at least one test fails.
         See Also
         --------
-        LIC0: Function of the cmv class which this test is testing.
+        modules.test : Function to test.
         """
 
     # Test 1

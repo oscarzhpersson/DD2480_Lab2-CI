@@ -13,6 +13,7 @@ def notify(data):
     r = requests.get(GIT_API + "/repos/" + REPO + "/statuses/" + SHA)
     print(GIT_API + "/repos/" + REPO + "/statuses/" + SHA)
     print(r.status_code)
+    print(r.json())
 
     #/repos/{owner}/{repo}/statuses/{sha}
 

@@ -52,7 +52,10 @@ def handler_Push():
     # TODO: Run module that tests.
 
     #Flask.Response(status=200)
-    return "OK" # Defaults to 200 response code.
+
+    return "OK " + message
+
+    #return "OK" # Defaults to 200 response code.
 
 
 # Start the Flask web server.

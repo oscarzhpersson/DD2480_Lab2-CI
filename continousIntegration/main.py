@@ -4,6 +4,8 @@ from flask import Flask, request, json
 import os
 import sys
 
+from modules.compilation import compile
+
 ##### SETTINGS #####
 
 STATUS_DEBUG = True
@@ -40,6 +42,9 @@ def handler_Push():
     os.system("git clone " + branch) # Runs command to clone the repository.
 
     # TODO: Run module that compiles.
+
+    
+
     # TODO: Run module that tests.
 
     #Flask.Response(status=200)

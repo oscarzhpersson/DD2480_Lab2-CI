@@ -1,8 +1,6 @@
 ##### IMPORTS #####
 
 import os
-import sys
-import subprocess
 
 ##### PARAMETERS #####
 
@@ -31,3 +29,10 @@ def compile(PATH):
 
     for file in pythonFiles:
         out = os.system('python' + PYTHON_VER + ' ' + '-m py_compile' + ' ' + file)
+
+        # An error code of 0 corresponds to success.
+        if out > 0:
+            return {'error', out} # Return message stating an error occurred during compilation.
+
+    # Return a message stating success during compilation.
+    return {'success', out}

@@ -1,1 +1,0 @@
-print('PROLOG3')

@@ -9,7 +9,7 @@ def notify(data, branch):
     GIT_API = "https://api.github.com"
     REF = branch
     query_post = GIT_API + "/repos/" + REPO + "/statuses/" + SHA
-    query_get = GIT_API + "/repos/" + REPO + "/commits/" + REF + "/statuses"
+    query_get = GIT_API + "/repos/" + REPO + "/commits/" + SHA + "/statuses"
     
     # os.system("curl " + "-X POST" + "-H Accept: application/vnd.github.v3+json" + "https://api.github.com/repos/{REPO}/{SHA}" + "-d {'state':'success'}")
     

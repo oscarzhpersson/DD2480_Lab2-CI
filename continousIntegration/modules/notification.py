@@ -12,11 +12,12 @@ def notify(data):
     # os.system("curl " + "-X POST" + "-H Accept: application/vnd.github.v3+json" + "https://api.github.com/repos/{REPO}/{SHA}" + "-d {'state':'success'}")
     
     response = requests.post(query,
-            data = {'key1':'value1', 'key2':'value2'},
-            state = "pending")
+            data = {'state':'pending'})
+    print(response.json())
     print(response.headers)
 
-    requests.post()
+    print("---")
+
     r = requests.get(GIT_API + "/repos/" + REPO + "/statuses/" + SHA)
     print(GIT_API + "/repos/" + REPO + "/statuses/" + SHA)
     print(r.status_code)

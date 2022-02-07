@@ -44,6 +44,8 @@ def handler_Push():
 
     # TODO: Run module that compiles.
 
+    print(str(os.getcwd()) + '/' + name)
+
     message, code = compile(PATH_REPO + '/' + name)
 
     if code > 0 or code < 0: # Error occured!

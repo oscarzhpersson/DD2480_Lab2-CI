@@ -36,6 +36,7 @@ def handler_Push():
 
     # Step 1: Clone the repository.
     branch = data["repository"]["clone_url"] # Fetches the clone URL from the payload.
+    name = data["repository"]["name"]
 
     #os.chdir(str(os.getcwd) + PATH_REPO) # Changes current directory to where the cloned repository is to be located.
     os.chdir(PATH_REPO)
@@ -43,7 +44,7 @@ def handler_Push():
 
     # TODO: Run module that compiles.
 
-    
+    compile(PATH_REPO + '/' + name)
 
     # TODO: Run module that tests.
 

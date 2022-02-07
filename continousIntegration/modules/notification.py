@@ -11,7 +11,9 @@ def notify(REPO, NAME, data):
 
     # os.system("curl " + "-X POST" + "-H Accept: application/vnd.github.v3+json" + "https://api.github.com/repos/{REPO}/{SHA}" + "-d {'state':'success'}")
     
-    r = requests.get(GIT_API + "/repos/" + NAME + "/" + REPO + "/statuses/" + SHA)
+    r = requests.post(GIT_API + "/repos/" + NAME + "/" + REPO + "/statuses/" + SHA)
+    print(r.text)
+
 
     #/repos/{owner}/{repo}/statuses/{sha}
 

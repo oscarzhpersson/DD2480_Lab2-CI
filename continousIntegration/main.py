@@ -5,6 +5,7 @@ import os
 import sys
 
 from modules.compilation import compile
+from modules.notification import notify
 
 ##### SETTINGS #####
 
@@ -53,6 +54,8 @@ def handler_Push():
         return message + ' ' + str(code)
 
     # TODO: Run module that tests.
+    
+    notify(name, data)
 
     #Flask.Response(status=200)
 

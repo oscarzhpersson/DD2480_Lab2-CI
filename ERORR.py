@@ -1,1 +1,1 @@
-ThisIsAnError
+print("Hello world"

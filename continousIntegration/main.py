@@ -47,13 +47,13 @@ def handler_Push():
     message, code = compile(PATH_REPO + '/' + name)
 
     if code > 0 or code < 0: # Error occured!
-        return message + ' ' + code
+        return message + ' ' + str(code)
 
     # TODO: Run module that tests.
 
     #Flask.Response(status=200)
 
-    return "OK " + message + ' ' + code
+    return "OK " + message + ' ' + str(code)
 
     #return "OK" # Defaults to 200 response code.
 

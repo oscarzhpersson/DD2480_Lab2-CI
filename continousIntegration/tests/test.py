@@ -16,7 +16,7 @@ class Tests(unittest.TestCase):
         See Also
         --------
         modules.test : Function to test.
-    """ 
+     
 
     # Test 1
     def test_empty(self):
@@ -32,12 +32,14 @@ class Tests(unittest.TestCase):
     def test_fails(self):
         status , _ = test('./test3')
         self.assertTrue(status == 'ERROR')
-     
+    """  
     def test_empty(self):
-        print("WHY IS THIS NOT RUNNING")
         status , _ = compile('./test4/tests')
         self.assertTrue(status == 'SUCCESS')
-    
+        
+    def test_successful(self):
+        status , _ = test('./test5/tests')
+        self.assertTrue(status == 'SUCCESS')
       
          
 if __name__ == '__main__':

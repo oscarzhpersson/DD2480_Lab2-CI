@@ -13,10 +13,10 @@ PYTHON_VER = '3'
 # Compiles files within the cloned repository which is specified using the path in the PATH argument.
 
 def compile(PATH):
-
     # Create a list to store all file paths.
     pythonFiles = []
-
+    out = ''
+    print(PATH)
     # Fetch all python files.
     for root, dirs, files in os.walk(PATH): # Traverse directory storing relevant information, from PATH path.
 

@@ -12,16 +12,16 @@ def notify(data, branch):
     REF = branch
     query_post = GIT_API + "/repos/" + REPO + "/statuses/" + SHA
     query_get = GIT_API + "/repos/" + REPO + "/commits/" + SHA + "/statuses"
-    
-    # os.system("curl " + "-X POST" + "-H Accept: application/vnd.github.v3+json" + "https://api.github.com/repos/{REPO}/{SHA}" + "-d {'state':'success'}")
-    
+
+
+    # Create a commit status
     response = requests.post(query_post,
-            data = {'state':'success', })
+            params = {'state':'success', 'accept':'application/vnd.github.v3+json'})
     print(response.json())
     print(response.headers)
     print("---")
 
-    #/repos/{owner}/{repo}/commits/{ref}/statuses
+    # Get list of commit status
     r = requests.get(query_get)
     print(r.status_code)
     print(r.json())

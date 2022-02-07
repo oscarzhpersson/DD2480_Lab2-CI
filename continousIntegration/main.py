@@ -31,8 +31,8 @@ def handler_Push():
 
     # Here you do all the continuous integration tasks
     # For example:
-    # 1st clone your repository
-    # 2nd compile the code
+    # 1st clone your repository DONE
+    # 2nd compile the code DONE
 
     # Step 1: Clone the repository.
     repo = data["repository"]["clone_url"] # Fetches the clone URL from the payload.
@@ -43,7 +43,7 @@ def handler_Push():
     os.chdir(PATH_REPO)
     os.system("git clone " + '-b ' + branch + ' ' + repo) # Runs command to clone the repository.
 
-    # TODO: Run module that compiles.
+    # Run module that compiles.
 
     print(str(os.getcwd()) + '/' + name)
 

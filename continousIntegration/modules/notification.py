@@ -3,11 +3,11 @@ import os
 import requests
 from flask import Flask, request, json
 
-def notify(data):
+def notify(data, branch):
     SHA = str(data["after"])
     REPO = str(data["repository"]["full_name"])
     GIT_API = "https://api.github.com"
-    REF = str(data["ref"])
+    REF = branch
     query_post = GIT_API + "/repos/" + REPO + "/statuses/" + SHA
     query_get = GIT_API + "/repos/" + REPO + "/commits/" + REF + "/statuses"
     

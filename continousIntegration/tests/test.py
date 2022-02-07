@@ -6,17 +6,29 @@ from modules.test import test
 
 
 class Tests(unittest.TestCase):
-    '''
-    ''' 
-    def test1(self):
+    """ Tests the test function.
+        Tests
+        -----
+        Test 1: Tests if it returns SUCCESS when there are no tests to run.
+        Test 2: Tests if it returns SUCCESS when all tests pass.
+        Test 3: Tests if it returns ERROR if at least one test fails.
+        See Also
+        --------
+        LIC0: Function of the cmv class which this test is testing.
+        """
+
+    # Test 1
+    def test_empty(self):
         status , _ = test('./test1')
         self.assertTrue(status == 'SUCCESS')
 
-    def test2(self):
+    # Test 2
+    def test_successful(self):
         status , _ = test('./test2')
         self.assertTrue(status == 'SUCCESS')
 
-    def test3(self):
+    # Test 3
+    def test_fails(self):
         status , _ = test('./test3')
         self.assertTrue(status == 'ERROR')
     

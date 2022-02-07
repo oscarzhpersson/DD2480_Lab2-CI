@@ -44,7 +44,10 @@ def handler_Push():
 
     # TODO: Run module that compiles.
 
-    compile(PATH_REPO + '/' + name)
+    message, code = compile(PATH_REPO + '/' + name)
+
+    if code > 0: # Error occured!
+        return message
 
     # TODO: Run module that tests.
 

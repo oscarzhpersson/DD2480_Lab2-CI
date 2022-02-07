@@ -55,7 +55,7 @@ def handler_Push():
 
     # TODO: Run module that tests.
     
-    notify(repo, name, data)
+    notify(data)
 
     #Flask.Response(status=200)
 

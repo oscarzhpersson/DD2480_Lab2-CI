@@ -16,6 +16,7 @@ def test(PATH):
 
     # Create a list to store all file paths.
     pythonFiles = []
+    out = 'No files run'
 
     # Fetch all python files.
     for root, _, files in os.walk(f'{PATH}/tests'): # Traverse directory storing relevant information, from PATH path.
@@ -34,5 +35,3 @@ def test(PATH):
 
     # Return a message stating success during compilation.
     return ('SUCCESS', out)
-
-print(test('../.'))

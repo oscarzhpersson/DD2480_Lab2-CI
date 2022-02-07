@@ -7,7 +7,7 @@ def notify(data, branch):
     SHA = str(data["after"])
     REPO = str(data["repository"]["full_name"])
     GIT_API = "https://api.github.com"
-    STATUS = data["statuses_url"]
+    STATUS = str(data["repository"]["statuses_url"])
     print(STATUS)
     REF = branch
     query_post = GIT_API + "/repos/" + REPO + "/statuses/" + SHA

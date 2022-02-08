@@ -25,6 +25,10 @@ def compile(PATH):
         STATUS:
             ERROR: At least one test failed.
             SUCCESS: All tests passed
+
+        See Also
+        -------
+        tests.test : Functions that tests this compile function
     '''
     
     # Create a list to store all file paths.

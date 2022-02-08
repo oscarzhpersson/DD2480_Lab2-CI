@@ -15,14 +15,21 @@ PYTHON_VER = '3'
 def test(PATH):
 
     ''' Checks for a top-level folder named 'tests' and runs all files within it.
+
         Parameters
         ----------
         PATH: The path to the project.
+
         Returns
         -------
         STATUS:
             ERROR: At least one test failed.
             SUCCESS: All tests passed
+
+        See Also
+        --------
+        tests.test : Functions that tests this test function
+        """
     '''
 
     # Create a list to store all file paths.

@@ -15,11 +15,12 @@ class Tests(unittest.TestCase):
         Test 3: Tests if it returns ERROR if at least one test fails.
         Test 4: Tests if it returns SUCCESS if there are not tests in the directory
         Test 5: Tests if it returns SUCCESS when all the tests in the directory can compile
-        Test 6: Tests if it returns ERROR if at least one of the files cannot
+        Test 6: Tests if it returns ERROR if at least one of the files in the directory cannot compiles
         
         See Also
         --------
-        modules.test : Function to test.
+        modules.test : Tests 1-3 tests the test function
+        modules.compilation :  Tests 4-6 tests the compile function
     """
     
     # Test 1

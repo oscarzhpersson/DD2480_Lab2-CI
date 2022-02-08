@@ -13,6 +13,7 @@ STATUS_DEBUG = True
 HOST = "127.0.0.1"
 PORT = 8080
 
+TOKEN = 0
 PATH_REPO = str(os.getcwd()) # Folder within CWD to run the code.
 
 ##### PROGRAM #####
@@ -40,6 +41,7 @@ def handler_Push():
     name = data["repository"]["name"]
     branch = data["ref"].split('/')[2]
 
+
     #os.chdir(str(os.getcwd) + PATH_REPO) # Changes current directory to where the cloned repository is to be located.
     os.chdir(PATH_REPO)
     os.system("git clone " + '-b ' + branch + ' ' + repo) # Runs command to clone the repository.
@@ -55,7 +57,7 @@ def handler_Push():
 
     # TODO: Run module that tests.
     
-    notify(data, branch)
+    notify(data, branch, TOKEN)
 
     #Flask.Response(status=200)
 
@@ -66,4 +68,5 @@ def handler_Push():
 
 # Start the Flask web server.
 if __name__ == '__main__':
+    TOKEN = sys.stdin.readline()
     app.run(debug=STATUS_DEBUG, host=HOST, port=PORT)

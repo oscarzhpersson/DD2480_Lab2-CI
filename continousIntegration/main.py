@@ -13,7 +13,6 @@ STATUS_DEBUG = True
 HOST = "127.0.0.1"
 PORT = 8080
 
-TOKEN = 0
 PATH_REPO = str(os.getcwd()) # Folder within CWD to run the code.
 
 ##### PROGRAM #####
@@ -23,6 +22,10 @@ app = Flask(__name__) # Variable for flask server application, to be called upon
 # Create an endpoint which receives requests from the GitHub API.
 @app.route('/', methods=['POST']) # Triggered by URL localhost:5000/
 def handler_Push():
+
+    TOKEN = sys.stdin.readline()
+    print("prolog")
+    print(TOKEN)
 
     data = request.json # Request the data from the event.
 
@@ -68,5 +71,5 @@ def handler_Push():
 
 # Start the Flask web server.
 if __name__ == '__main__':
-    TOKEN = sys.stdin.readline()
+    #TOKEN = sys.stdin.readline()
     app.run(debug=STATUS_DEBUG, host=HOST, port=PORT)

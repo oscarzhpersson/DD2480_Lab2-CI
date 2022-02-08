@@ -13,8 +13,12 @@ def notify(data, branch, TOKEN):
     query_get = GIT_API + "/repos/" + REPO + "/commits/" + SHA + "/statuses"
 
     # Create a commit status using curl
-    state = "{\"state\": \"failure\" }"
-    command = f'curl -H "Authorization: token {TOKEN}" "Content-Type: application/json"   -X POST -d {state} https://api.github.com/repos/{REPO}/statuses/{SHA}'
+    state = r"\"state\":\"success\"" #"{\"state\": \"failure\" }" #"'state':'failure'"
+    #command = f'curl -H "Authorization: token {TOKEN}" "Content-Type: application/json"   -X POST -d "{{state}}" https://api.github.com/repos/{REPO}/statuses/{SHA}'
+    command = 'curl -H "Authorization: token ' + TOKEN + '" "Content-Type: application/json"   -X POST -d "{'+ state +'}" https://api.github.com/repos/' + REPO +'/statuses/' + SHA
+    print("---")
+    print(command)
+    print("---")
     os.system(command)
 
     """response = requests.post(query_post,

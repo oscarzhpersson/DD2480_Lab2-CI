@@ -50,7 +50,7 @@ def test(PATH):
 
         # An error code of 0 corresponds to success.
         if out > 0:
-            return ('ERROR', out) # Return message stating an error occurred during compilation.
+            return ('ERROR in ' + file, out) # Return message stating an error occurred during compilation.
 
     # Return a message stating success during compilation.
     return ('SUCCESS', out)

@@ -6,6 +6,7 @@ import sys
 
 from modules.compilation import compile
 from modules.notification import notify
+from modules.test import test
 
 ##### SETTINGS #####
 
@@ -54,6 +55,7 @@ def handler_Push():
     print(str(os.getcwd()) + '/' + name)
 
     message, code = compile(PATH_REPO + '/' + name)
+    message, code = test(PATH_REPO + '/' + name)
 
     if code > 0 or code < 0: # Error occured!
         notify(data, "failure", TOKEN)

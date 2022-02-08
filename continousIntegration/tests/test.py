@@ -36,15 +36,17 @@ class Tests(unittest.TestCase):
         status , _ = test('./test3')
         self.assertTrue(status == 'ERROR')
 
+    # Test 4
     def test_empty(self):
         status , _ = compile('./test4/tests')
         self.assertTrue(status == 'SUCCESS')
         
+    # Test 5   
     def test_successful(self):
         status , _ = test('./test5/tests')
         self.assertTrue(status == 'SUCCESS')
     
-     # Test 3
+    # Test 6
     def test_fails(self):
         status , _ = test('./test6/tests')
         self.assertTrue(status == 'ERROR')

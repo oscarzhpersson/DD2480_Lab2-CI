@@ -33,7 +33,7 @@ def compile(PATH):
     
     # Create a list to store all file paths.
     pythonFiles = []
-    out = ''
+    
     # Fetch all python files.
     for root, dirs, files in os.walk(PATH): # Traverse directory storing relevant information, from PATH path.
 
@@ -50,4 +50,4 @@ def compile(PATH):
             return ('ERROR in ' + file, out) # Return message stating an error occurred during compilation.
 
     # Return a message stating success during compilation.
-    return ('SUCCESS', out)
+    return ('SUCCESS', 0)

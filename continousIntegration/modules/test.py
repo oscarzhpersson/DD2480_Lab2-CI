@@ -34,7 +34,6 @@ def test(PATH):
 
     # Create a list to store all file paths.
     pythonFiles = []
-    out = 'No files run'
 
     # Fetch all python files from the tests folder.
     for root, _, files in os.walk(f'{PATH}/tests'): # Traverse directory storing relevant information, from PATH path.
@@ -53,4 +52,4 @@ def test(PATH):
             return ('ERROR in ' + file, out) # Return message stating an error occurred during compilation.
 
     # Return a message stating success during compilation.
-    return ('SUCCESS', out)
+    return ('SUCCESS', 0)

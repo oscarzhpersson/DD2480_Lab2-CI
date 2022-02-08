@@ -15,7 +15,7 @@ class Tests(unittest.TestCase):
         Test 3: Tests if it returns ERROR if at least one test fails.
         Test 4: Tests if it returns SUCCESS if there are not tests in the directory
         Test 5: Tests if it returns SUCCESS when all the tests in the directory can compile
-        Test 6: Tests if it returns ERROR if at least one of the files in the directory cannot compiles
+        Test 6: Tests if it returns ERROR if at least one of the files in the directory cannot compile
         
         See Also
         --------

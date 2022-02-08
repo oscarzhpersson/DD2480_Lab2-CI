@@ -49,12 +49,18 @@ def handler_Push():
     print(str(os.getcwd()) + '/' + name)
 
     message, code = compile(PATH_REPO + '/' + name)
+
+    if code > 0 or code < 0: # Error occured!
+        # Set github status.
+        return message + ' ' + str(code)
+
+    # Run module that tests.
+
     message, code = test(PATH_REPO + '/' + name)
 
     if code > 0 or code < 0: # Error occured!
+        # Set github status.
         return message + ' ' + str(code)
-
-    # TODO: Run module that tests.
 
     #Flask.Response(status=200)
 

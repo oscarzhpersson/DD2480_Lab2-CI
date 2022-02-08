@@ -23,7 +23,7 @@ def test(PATH):
         STATUS:
             ERROR: At least one test failed.
             SUCCESS: All tests passed
-        '''
+    '''
 
     # Create a list to store all file paths.
     pythonFiles = []
@@ -35,7 +35,6 @@ def test(PATH):
             if file.endswith('.py'): # If the file is of type .py.
                 pythonFiles.append(os.path.join(root, file)) # Add it to the list as a complete file path.
 
-    print("PERFORMS TESTS")
 
     for file in pythonFiles:
         # Runs the test file

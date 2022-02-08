@@ -24,10 +24,10 @@ app = Flask(__name__) # Variable for flask server application, to be called upon
 def handler_Push():
 
     TOKEN = sys.stdin.readline()
-    print("prolog")
-    print(TOKEN)
 
     data = request.json # Request the data from the event.
+
+    notify(data, "pending", TOKEN)
 
     print("Received PUSH event from webhook!") # Debug print.
 
@@ -56,11 +56,12 @@ def handler_Push():
     message, code = compile(PATH_REPO + '/' + name)
 
     if code > 0 or code < 0: # Error occured!
+        notify(data, "failure", TOKEN)
         return message + ' ' + str(code)
 
     # TODO: Run module that tests.
     
-    notify(data, branch, TOKEN)
+    notify(data, "success", TOKEN)
 
     #Flask.Response(status=200)
 

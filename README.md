@@ -82,3 +82,5 @@ Implement Unit Test for testing.
 Creation of Essence documentation.
 Documentation of DocString.
 ```
+
+# Properties Made to Acheive P+

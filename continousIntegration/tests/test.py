@@ -21,7 +21,7 @@ class Tests(unittest.TestCase):
         --------
         modules.test : Function to test.
     """
-    """
+    
     # Test 1
     def test_empty(self):
         status , _ = test('./test1')
@@ -35,8 +35,8 @@ class Tests(unittest.TestCase):
     # Test 3
     def test_fails(self):
         status , _ = test('./test3')
-        self.assertTrue(status == 'ERROR')
-    """
+        self.assertFalse(status == 'ERROR')
+    
     # Test 4
     def test_empty_com(self):
         status , _ = compile('./test4/tests')

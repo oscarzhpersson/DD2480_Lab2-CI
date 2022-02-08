@@ -2,6 +2,7 @@
 
 This program aims to implement three core features of Continuous Integration - Compilation, Testing, and Notification through `compilation.py`, `test.py` and `notification.py` respectively.
 
+
 # Requirements
 
 We assume here that you have a standard Linux machine (eg with Ubuntu), with Python installed.

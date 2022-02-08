@@ -10,9 +10,4 @@ def notify(data, STATUS, TOKEN):
     command = 'curl -H "Authorization: token ' + TOKEN + '" "Content-Type: application/json"   -X POST -d "{'+ state +'}" https://api.github.com/repos/' + REPO +'/statuses/' + SHA
     os.system(command)
 
-    """# Get list of commit status
-    r = requests.get(query_get)
-    print(r.status_code)
-    print(r.json())"""
-
     return "OK"

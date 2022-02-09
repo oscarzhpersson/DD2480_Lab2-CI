@@ -53,7 +53,7 @@ def compile(PATH):
     # Return a message stating success during compilation.
     return ('SUCCESS', out)
 
-def logger(PATH_REPO, name, message):
+def logger(PATH_REPO, name, message, sender):
 
     #Checks if the file exist
     file_exists = os.path.exists('../resources/logging.txt') #will hold a True or False value
@@ -67,5 +67,5 @@ def logger(PATH_REPO, name, message):
     path = PATH_REPO + '/' + name
 
     file1 = open("../resources/logging.txt", "a")  # append mode
-    file1.write(path + "\n" + "Compiled at:" + str(time) + "\n" + "Status: " + message + "\n\n")
+    file1.write("Push event from: " + sender + "\n" + "Path: " + path + "\n" + "Compiled at:" + str(time) + "\n" + "Status: " + message + "\n\n")
     file1.close()

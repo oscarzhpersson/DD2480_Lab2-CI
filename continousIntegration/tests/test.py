@@ -17,11 +17,7 @@ class Tests(unittest.TestCase):
         Test 4: Tests if it returns SUCCESS if there are not tests in the directory
         Test 5: Tests if it returns SUCCESS when all the tests in the directory can compile
         Test 6: Tests if it returns ERROR if at least one of the files in the directory cannot compile
-<<<<<<< HEAD
         Test 7: Tests if it returns ERROR if no valid authentication token is given
-=======
-        Test 7: Tests if it returns ERROR if at least one of the files in the directory cannot compile
->>>>>>> f04a518bc7c57bff8fad020262f9fc16c7ac35f3
         
         See Also
         --------
@@ -31,34 +27,34 @@ class Tests(unittest.TestCase):
     
     # Test 1
     def test_empty(self):
-        status , _ = test('./test1')
-        self.assertTrue(status == 'SUCCESS')
+        status , code = test('./test1')
+        self.assertTrue(code == 0)
 
     # Test 2
     def test_successful(self):
-        status , _ = test('./test2')
-        self.assertTrue(status == 'SUCCESS')
+        status , code = test('./test2')
+        self.assertTrue(code == 0)
 
     # Test 3
     def test_fails(self):
-        status , _ = test('./test3')
-        self.assertFalse(status == 'ERROR')
+        status , code = test('./test3')
+        self.assertFalse(code != 0)
     
     # Test 4
     def test_empty_com(self):
-        status , _ = compile('./test4/tests')
-        self.assertTrue(status == 'SUCCESS')
+        status , code = compile('./test4/tests')
+        self.assertTrue(code == 0)
     
     # Test 5   
     def test_successful_com(self):
-        status , _ = compile('./test5/tests')
-        self.assertTrue(status == 'SUCCESS')
+        status , code = compile('./test5/tests')
+        self.assertTrue(code == 0)
     
     # Test 6
     def test_fails_com(self):
-        status , _ = compile('./test6/tests')
-        self.assertFalse(status == 'ERROR')
-    
+        status , code = compile('./test6/tests')
+        self.assertFalse(code != 0)
+
     # Test 7 
     def test_fails_notify(self):
         data = {
@@ -68,7 +64,8 @@ class Tests(unittest.TestCase):
             }
         }
         status , _ = notify(data, "success", 0)
-        self.assertTrue(status == 'ERROR: No authentication token provided')
+        self.assertTrue(status != 0)
+
 
          
 if __name__ == '__main__':

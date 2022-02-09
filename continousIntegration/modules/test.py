@@ -1,55 +1,57 @@
-##### IMPORTS #####
-
+import unittest
+import sys
 import os
+sys.path.append('./')
+import test_func
+from compilation import compile
 
-##### PARAMETERS #####
 
-#PYTHON_VER = '3.9.8'
-PYTHON_VER = '3'
-
-##### PROGRAM #####
-
-# To be called from main.py.
-# Compiles files within the cloned repository which is specified using the path in the PATH argument.
-
-def test(PATH):
-
-    ''' Checks for a top-level folder named 'tests' and runs all files within it.
-
-        Parameters
-        ----------
-        PATH: The path to the project.
-
-        Returns
-        -------
-        STATUS:
-            ERROR: At least one test failed.
-            SUCCESS: All tests passed
-
+class Tests(unittest.TestCase):
+    """ Tests the test function.
+        Tests
+        -----
+        Test 1: Tests if it returns SUCCESS when there are no tests to run.
+        Test 2: Tests if it returns SUCCESS when all tests pass.
+        Test 3: Tests if it returns ERROR if at least one test fails.
+        Test 4: Tests if it returns SUCCESS if there are not tests in the directory
+        Test 5: Tests if it returns SUCCESS when all the tests in the directory can compile
+        Test 6: Tests if it returns ERROR if at least one of the files in the directory cannot compile
+        
         See Also
         --------
-        tests.test : Functions that tests this test function
-        """
-    '''
+        modules.test : Tests 1-3 tests the test function
+        modules.compilation :  Tests 4-6 tests the compile function
+    """
+    
+    # Test 1
+    def test_empty(self):
+        status , _ = test_func.test('./tests/test1')
+        self.assertTrue(status == 'SUCCESS')
 
-    # Create a list to store all file paths.
-    pythonFiles = []
+    # Test 2
+    def test_successful(self):
+        status , _ = test_func.test('./tests/test2')
+        self.assertTrue(status == 'SUCCESS')
 
-    # Fetch all python files from the tests folder.
-    for root, _, files in os.walk(f'{PATH}/tests'): # Traverse directory storing relevant information, from PATH path.
-        for file in files: # Go through all files in current directory.
-            if file.endswith('.py'): # If the file is of type .py.
-                pythonFiles.append(os.path.join(root, file)) # Add it to the list as a complete file path.
-
-
-    for file in pythonFiles:
-        # Runs the test file
-        out = os.system(f'python{PYTHON_VER} {file}')
-        print(out)
-
-        # An error code of 0 corresponds to success.
-        if out > 0:
-            return ('ERROR in ' + file, out) # Return message stating an error occurred during compilation.
-
-    # Return a message stating success during compilation.
-    return ('SUCCESS', 0)
+    # Test 3
+    def test_fails(self):
+        status , _ = test_func.test('./tests/test3')
+        self.assertFalse(status == 'ERROR')
+    
+    # Test 4
+    def test_empty_com(self):
+        status , _ = compile('./tests/test4/tests')
+        self.assertTrue(status == 'SUCCESS')
+    
+    # Test 5   
+    def test_successful_com(self):
+        status , _ = compile('./tests/test5/tests')
+        self.assertTrue(status == 'SUCCESS')
+    
+    # Test 6
+    def test_fails_com(self):
+        status , _ = compile('./tests/test6/tests')
+        self.assertFalse(status == 'ERROR')
+         
+if __name__ == '__main__':
+    unittest.main()

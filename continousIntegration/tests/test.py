@@ -36,7 +36,7 @@ class Tests(unittest.TestCase):
     # Test 3
     def test_fails(self):
         status , code = test('./test3')
-        self.assertFalse(code == 1)
+        self.assertFalse(code != 0)
     
     # Test 4
     def test_empty_com(self):
@@ -51,7 +51,7 @@ class Tests(unittest.TestCase):
     # Test 6
     def test_fails_com(self):
         status , code = compile('./test6/tests')
-        self.assertFalse(code == 1)
+        self.assertFalse(code != 0)
          
 if __name__ == '__main__':
     unittest.main()

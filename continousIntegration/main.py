@@ -51,6 +51,7 @@ def handler_Push():
 
     if code > 0 or code < 0: # Error occured!
         # Set github status.
+        print("--- FAILURE--- ")
         notify(data, "failure", TOKEN)
         return message + ' ' + str(code)
 
@@ -60,9 +61,11 @@ def handler_Push():
 
     if code > 0 or code < 0: # Error occured!
         # Set github status.
+        print("--- FAILURE--- ")
         notify(data, "failure", TOKEN)
         return message + ' ' + str(code)
 
+    print("--- SUCCESS ---")
     notify(data, "success", TOKEN)
 
     return "OK " + message + ' ' + str(code)

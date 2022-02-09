@@ -3,7 +3,8 @@ import sys
 import os
 sys.path.append('../')
 from modules.test import test 
-from modules.compilation import compile 
+from modules.compilation import compile
+from modules.notification import notify
 
 
 class Tests(unittest.TestCase):
@@ -52,6 +53,7 @@ class Tests(unittest.TestCase):
     def test_fails_com(self):
         status , _ = compile('./test6/tests')
         self.assertFalse(status == 'ERROR')
+
          
 if __name__ == '__main__':
     unittest.main()

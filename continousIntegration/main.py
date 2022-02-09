@@ -3,7 +3,6 @@
 from flask import Flask, request, json
 import os
 import sys
-import requests
 
 from modules.compilation import compile
 from modules.notification import notify
@@ -28,7 +27,11 @@ def handler_Push():
     TOKEN = sys.stdin.readline()
     data = request.json # Request the data from the event.
 
-    notify(data, "pending", TOKEN)
+    message, code = notify(data, "pending", TOKEN)
+    if code > 0 or code < 0: # Error occured!
+        # Set github status.
+        notify(data, "failure", TOKEN)
+        return message + ' ' + str(code)
 
     print("Received PUSH event from webhook!") # Debug print.
 

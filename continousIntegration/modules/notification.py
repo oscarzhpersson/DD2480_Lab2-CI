@@ -14,6 +14,10 @@ def notify(data, STATUS, TOKEN):
     SHA = str(data["after"])
     REPO = str(data["repository"]["full_name"])
 
+    # Not a valid token
+    if not TOKEN:
+        return ('ERROR: No authentication token provided', -1)
+
     # Create a commit status using curl
     api_url = f"https://api.github.com/repos/{REPO}/statuses/{SHA}"
     paramters = {
@@ -25,7 +29,7 @@ def notify(data, STATUS, TOKEN):
     
     # API call failed
     if response.status_code != 201:
-        return ('ERROR - Bad credentials: ', response.status_code)
+        return ('ERROR: ', response.status_code)
     
     # API call successfull
     return ('SUCCESS', 0)

@@ -63,8 +63,8 @@ class Tests(unittest.TestCase):
                 "full_name": "soderqw/DD2480_Lab2-CI",
             }
         }
-        status , _ = notify(data, "success", 0)
-        self.assertTrue(status != 0)
+        status , code = notify(data, "success", 0)
+        self.assertTrue(code != 0)
 
 
          

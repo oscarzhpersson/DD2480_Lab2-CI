@@ -9,7 +9,7 @@ def notify(data, STATUS, TOKEN):
         data: JSON file containing webhook payload.
         STATUS: Set by caller to 'pending', 'success', 'failure' or other valid statuses.
         TOKEN: Set by caller to authenticate in order to make GitHub API calls.
-
+        
     '''
     SHA = str(data["after"])
     REPO = str(data["repository"]["full_name"])
@@ -19,5 +19,5 @@ def notify(data, STATUS, TOKEN):
 
     # Create a commit status using curl
     state = fr"\"state\":\"{STATUS}\"" 
-    command = 'curl -H "Authorization: token ' + TOKEN + '" "Accept: application/vnd.github.v3+json" -X POST -d "{'+ state +'}" https://api.github.com/repos/' + REPO + '/statuses/' + SHA
+    command = 'curl -H "Authorization: token ' + TOKEN + '" "Accept: application/vnd.github.v3+json" -X POST -d "{'+ state +'}" https://api.github.com/repos/' + REPO + '/statuses/' + SHA + ' -s > /dev/null'
     os.system(command)

@@ -3,7 +3,8 @@ import sys
 import os
 sys.path.append('../')
 from modules.test import test 
-from modules.compilation import compile 
+from modules.compilation import compile
+from modules.notification import notify
 
 
 class Tests(unittest.TestCase):
@@ -16,6 +17,7 @@ class Tests(unittest.TestCase):
         Test 4: Tests if it returns SUCCESS if there are not tests in the directory
         Test 5: Tests if it returns SUCCESS when all the tests in the directory can compile
         Test 6: Tests if it returns ERROR if at least one of the files in the directory cannot compile
+        Test 7: Tests if it returns ERROR if at least one of the files in the directory cannot compile
         
         See Also
         --------

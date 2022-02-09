@@ -1,5 +1,4 @@
 import os
-from flask import Flask, json
 
 def notify(data, STATUS, TOKEN):
     ''' Will set commit status to 'pending', 'success' or 'failure' based on STATUS input. The status set will be visible on GitHub in the commit history after a push.
@@ -14,10 +13,11 @@ def notify(data, STATUS, TOKEN):
     SHA = str(data["after"])
     REPO = str(data["repository"]["full_name"])
 
-    if not TOKEN:
-        raise ValueError('No authorization token is provided')
+    #if not TOKEN:
+    #    raise ValueError('No authorization token is provided')
 
     # Create a commit status using curl
     state = fr"\"state\":\"{STATUS}\"" 
     command = 'curl -H "Authorization: token ' + TOKEN + '" "Accept: application/vnd.github.v3+json" -X POST -d "{'+ state +'}" https://api.github.com/repos/' + REPO + '/statuses/' + SHA + ' -s > /dev/null'
-    os.system(command)
+    out = os.system(command)
+    print(out)

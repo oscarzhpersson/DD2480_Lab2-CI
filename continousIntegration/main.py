@@ -28,6 +28,7 @@ def handler_Push():
     TOKEN = sys.stdin.readline()
     data = request.json # Request the data from the event.
 
+    print("--- PENDING ---")
     notify(data, "pending", TOKEN)
 
     print("Received PUSH event from webhook!") # Debug print.
@@ -48,6 +49,7 @@ def handler_Push():
 
     if code > 0 or code < 0: # Error occured!
         # Set github status.
+        print("--- FAILURE--- ")
         notify(data, "failure", TOKEN)
         return message + ' ' + str(code)
 
@@ -57,9 +59,11 @@ def handler_Push():
 
     if code > 0 or code < 0: # Error occured!
         # Set github status.
+        print("--- FAILURE--- ")
         notify(data, "failure", TOKEN)
         return message + ' ' + str(code)
 
+    print("--- SUCCESS ---")
     notify(data, "success", TOKEN)
 
     return "OK " + message + ' ' + str(code)

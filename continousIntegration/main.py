@@ -5,6 +5,7 @@ import os
 import sys
 
 from modules.compilation import compile
+from modules.compilation import logger
 from modules.test import test
 
 ##### SETTINGS #####
@@ -50,6 +51,7 @@ def handler_Push():
 
     message, code = compile(PATH_REPO + '/' + name)
     message, code = test(PATH_REPO + '/' + name)
+    logger(PATH_REPO, name, message)
 
     if code > 0 or code < 0: # Error occured!
         return message + ' ' + str(code)

@@ -54,7 +54,23 @@ def compile(PATH):
     return ('SUCCESS', 0)
 
 def logger(PATH_REPO, name, message, sender, sha):
+    ''' Logs the activity when a webhook is activated.
 
+               Parameters
+               ----------
+               PATH: The path to the project.
+               name: name of the repo
+               message: Status of the build
+               sender: The person who created the webhook
+
+               Returns
+               -------
+               none
+
+               See Also
+               -------
+               main : Functions that calls this logger function
+       '''
     #Checks if the file exist
     file_exists = os.path.exists('../../../logging.txt') #will hold a True or False value
 

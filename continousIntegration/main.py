@@ -28,8 +28,10 @@ def handler_Push():
     print("Received PUSH event from webhook!") # Debug print.
 
     # Step 1: Clone the repository.
-    repo = data["repository"]["clone_url"] # Fetches the clone URL from the payload.
+    repo = data["repository"]["clone_url"]  # Fetches the clone URL from the payload.
     name = data["repository"]["name"]
+    sender = data["sender"]["login"]
+    sha = data["pull_requests"]["sha"]
     branch = data["ref"].split('/')[2]
 
     os.chdir(PATH_REPO)
@@ -48,6 +50,7 @@ def handler_Push():
     # Run module that tests.
 
     message, code = test(PATH_REPO + '/' + name)
+    logger(PATH_REPO, name, message, sender, sha)
 
     if code > 0 or code < 0: # Error occured!
         # Set github status.

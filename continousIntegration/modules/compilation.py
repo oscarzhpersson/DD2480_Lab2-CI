@@ -34,7 +34,6 @@ def compile(PATH):
     
     # Create a list to store all file paths.
     pythonFiles = []
-    out = ''
     # Fetch all python files.
     for root, dirs, files in os.walk(PATH): # Traverse directory storing relevant information, from PATH path.
 

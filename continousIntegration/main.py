@@ -40,6 +40,7 @@ def handler_Push():
     repo = data["repository"]["clone_url"] # Fetches the clone URL from the payload.
     name = data["repository"]["name"]
     sender = data["sender"]["login"]
+    sha = data["pull_requests"]["sha"]
     branch = data["ref"].split('/')[2]
 
     #os.chdir(str(os.getcwd) + PATH_REPO) # Changes current directory to where the cloned repository is to be located.
@@ -52,7 +53,7 @@ def handler_Push():
 
     message, code = compile(PATH_REPO + '/' + name)
     message, code = test(PATH_REPO + '/' + name)
-    logger(PATH_REPO, name, message, sender)
+    logger(PATH_REPO, name, message, sender, sha)
 
     if code > 0 or code < 0: # Error occured!
         return message + ' ' + str(code)

@@ -53,7 +53,7 @@ def compile(PATH):
     # Return a message stating success during compilation.
     return ('SUCCESS', out)
 
-def logger(PATH_REPO, name, message, sender):
+def logger(PATH_REPO, name, message, sender, sha):
     ''' Logs the activity when a webhook is activated.
 
             Parameters
@@ -84,6 +84,12 @@ def logger(PATH_REPO, name, message, sender):
     time = datetime.now()
     path = PATH_REPO + '/' + name
 
-    file1 = open("../resources/logging.txt", "a")  # append mode
-    file1.write("Push event from: " + sender + "\n" + "Path: " + path + "\n" + "Compiled at:" + str(time) + "\n" + "Status: " + message + "\n\n")
+    file1 = open("../../../logging.txt", "a")  #append mode
+    file1.write("Push event from: " + sender + "\n" + "Path: " + path + "\n" + "Compiled at:" + str(time) + "\n" + "Status: " + message + "\n" + "Sha: " + sha + "\n\n")
     file1.close()
+
+def main():
+    logger("lab2decide/res", "Issue#5", "FAIL", "MUSTAFAMUSSE", "kajdsjkaskjasdkjs")
+
+if __name__ == "__main__":
+    main()

@@ -1,9 +1,9 @@
 import unittest
 import sys
 import os
-sys.path.append('../')
-from modules.test import test 
-from modules.compilation import compile 
+sys.path.append('./')
+import test
+from compilation import compile
 
 
 class Tests(unittest.TestCase):
@@ -25,32 +25,32 @@ class Tests(unittest.TestCase):
     
     # Test 1
     def test_empty(self):
-        status , _ = test('./test1')
+        status , _ = test.test('./tests/test1')
         self.assertTrue(status == 'SUCCESS')
 
     # Test 2
     def test_successful(self):
-        status , _ = test('./test2')
+        status , _ = test.test('./tests/test2')
         self.assertTrue(status == 'SUCCESS')
 
     # Test 3
     def test_fails(self):
-        status , _ = test('./test3')
+        status , _ = test.test('./tests/test3')
         self.assertFalse(status == 'ERROR')
     
     # Test 4
     def test_empty_com(self):
-        status , _ = compile('./test4/tests')
+        status , _ = compile('./tests/test4/tests')
         self.assertTrue(status == 'SUCCESS')
     
     # Test 5   
     def test_successful_com(self):
-        status , _ = compile('./test5/tests')
+        status , _ = compile('./tests/test5/tests')
         self.assertTrue(status == 'SUCCESS')
     
     # Test 6
     def test_fails_com(self):
-        status , _ = compile('./test6/tests')
+        status , _ = compile('./tests/test6/tests')
         self.assertFalse(status == 'ERROR')
          
 if __name__ == '__main__':

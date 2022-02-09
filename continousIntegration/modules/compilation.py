@@ -65,8 +65,7 @@ def logger(PATH_REPO, name, message, sender, sha):
 
             Returns
             -------
-            STATUS:
-                none
+            none
 
             See Also
             -------
@@ -87,9 +86,3 @@ def logger(PATH_REPO, name, message, sender, sha):
     file1 = open("../../../logging.txt", "a")  #append mode
     file1.write("Push event from: " + sender + "\n" + "Path: " + path + "\n" + "Compiled at:" + str(time) + "\n" + "Status: " + message + "\n" + "Sha: " + sha + "\n\n")
     file1.close()
-
-def main():
-    logger("lab2decide/res", "Issue#5", "FAIL", "MUSTAFAMUSSE", "kajdsjkaskjasdkjs")
-
-if __name__ == "__main__":
-    main()

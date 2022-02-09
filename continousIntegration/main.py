@@ -3,6 +3,7 @@
 from flask import Flask, request, json
 import os
 import sys
+import requests
 
 from modules.compilation import compile
 from modules.notification import notify
@@ -25,7 +26,6 @@ app = Flask(__name__) # Variable for flask server application, to be called upon
 def handler_Push():
 
     TOKEN = sys.stdin.readline()
-
     data = request.json # Request the data from the event.
 
     notify(data, "pending", TOKEN)
@@ -48,6 +48,7 @@ def handler_Push():
 
     if code > 0 or code < 0: # Error occured!
         # Set github status.
+        notify(data, "failure", TOKEN)
         return message + ' ' + str(code)
 
     # Run module that tests.
@@ -56,8 +57,10 @@ def handler_Push():
 
     if code > 0 or code < 0: # Error occured!
         # Set github status.
+        notify(data, "failure", TOKEN)
         return message + ' ' + str(code)
 
+    notify(data, "success", TOKEN)
 
     return "OK " + message + ' ' + str(code)
 

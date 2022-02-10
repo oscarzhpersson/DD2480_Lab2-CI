@@ -1,5 +1,6 @@
 ##### IMPORTS #####
 
+from tkinter import W
 from flask import Flask, request, json
 import os
 import sys
@@ -24,7 +25,17 @@ app = Flask(__name__) # Variable for flask server application, to be called upon
 @app.route('/', methods=['POST']) # Triggered by URL localhost:5000/
 def handler_Push():
 
-    TOKEN = sys.stdin.readline()
+    TOKEN = '';
+
+    if not os.path.isfile('./.TOKEN.txt'):
+        TOKEN = sys.stdin.readline()
+        with open('./.TOKEN.txt', 'w') as f:
+            f.write(TOKEN)
+    else:
+        with open('./.TOKEN.txt', 'r') as f:
+            TOKEN = f.read()
+
+
     data = request.json # Request the data from the event.
 
     message, code = notify(data, "pending", TOKEN)

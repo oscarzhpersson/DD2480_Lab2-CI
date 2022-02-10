@@ -28,7 +28,7 @@ def notify(data, STATUS, TOKEN):
     response = requests.post(api_url, headers=header, data=json.dumps(paramters))
 
     # API call failed
-    if response.status_code != 201 or response.status_code != 200:
+    if response.status_code != 201:
         return ('ERROR: ', response.status_code)
     
     # API call successfull

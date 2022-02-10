@@ -4,6 +4,7 @@ from tkinter import W
 from flask import Flask, request, json
 import os
 import sys
+import shutil
 
 from modules.compilation import compile
 from modules.notification import notify
@@ -50,6 +51,10 @@ def handler_Push():
     repo = data["repository"]["clone_url"] # Fetches the clone URL from the payload.
     name = data["repository"]["name"]
     branch = data["ref"].split('/')[2]
+
+    if os.path.isdir(name):
+        # Remove the cloned repo.
+        shutil.rmtree(name)
 
     os.chdir(PATH_REPO)
     os.system("git clone " + '-b ' + branch + ' ' + repo) # Runs command to clone the repository.

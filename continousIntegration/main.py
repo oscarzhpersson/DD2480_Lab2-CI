@@ -25,6 +25,8 @@ app = Flask(__name__) # Variable for flask server application, to be called upon
 @app.route('/', methods=['POST']) # Triggered by URL localhost:5000/
 def handler_Push():
 
+    TOKEN = sys.stdin.readline()
+
     """TOKEN = '';
 
     if not os.path.isfile('./.TOKEN.txt'):

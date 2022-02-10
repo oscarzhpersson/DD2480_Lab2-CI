@@ -35,11 +35,11 @@ def handler_Push():
         with open('./.TOKEN.txt', 'r') as f:
             TOKEN = f.read()
 
-    print(TOKEN)
-
     data = request.json # Request the data from the event.
 
     message, code = notify(data, "pending", TOKEN)
+
+    print('TEST')
     
     if code > 0 or code < 0: # Error occured!
         # Set github status.

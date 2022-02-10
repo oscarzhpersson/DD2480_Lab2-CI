@@ -35,6 +35,7 @@ def handler_Push():
         with open('./.TOKEN.txt', 'r') as f:
             TOKEN = f.read()
 
+    print(TOKEN)
 
     data = request.json # Request the data from the event.
 

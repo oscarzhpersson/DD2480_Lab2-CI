@@ -26,9 +26,9 @@ def notify(data, STATUS, TOKEN):
         }
     header = {'Authorization': f'token {TOKEN}','Accept': 'application/vnd.github.v3+json'}
     response = requests.post(api_url, headers=header, data=json.dumps(paramters))
-    
+
     # API call failed
-    if response.status_code != 201:
+    if response.status_code != 201 or response.status_code != 200:
         return ('ERROR: ', response.status_code)
     
     # API call successfull

@@ -9,6 +9,7 @@ class Test(unittest.TestCase):
 
     def test(self):
         self.assertTrue(os.path.isdir('../.TOKEN.txt'))
+        
 
 if __name__ == '__main__':
     unittest.main()

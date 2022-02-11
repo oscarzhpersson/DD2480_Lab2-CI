@@ -87,5 +87,5 @@ def handler_Push():
 
 # Start the Flask web server.
 if __name__ == '__main__':
-    app.run(debug=STATUS_DEBUG, host=HOST, port=PORT, use_reload=RELOAD)
+    app.run(debug=STATUS_DEBUG, host=HOST, port=PORT, use_reloader=RELOAD)
     

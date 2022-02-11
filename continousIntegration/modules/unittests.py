@@ -51,9 +51,9 @@ class Tests(unittest.TestCase):
         self.assertTrue(code == 0)
     
     # Test 6
-    def test_fails_com(self):
-        status , code = compile('../unittests/test6')
-        self.assertFalse(code == 0)
+    # def test_fails_com(self):
+    #     status , code = compile('../unittests/test6')
+    #     self.assertFalse(code == 0)
 
     # Test 7 
     def test_fails_notify(self):
